@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
+  "main": "dist/main.js",
   "scripts": {
+    "prepare": "npm run gcp-build",
+    "pretest": "npm run gcp-build",
+    "deploy": "gcloud app deploy",
     "build": "tsc -p tsconfig.build.json",
     "start": "ts-node src/main",
     "prestart:prod": "npm run build",
-    "start:prod": "node dist/main.js"
+    "start:prod": "node dist/main.js",
+    "gcp-build": "tsc -p ."
   },
   "dependencies": {
     "@google-cloud/firestore": "^2.3.0",
@@ -18,12 +23,13 @@
     "class-transformer": "0.2.3",
     "class-validator": "0.10.0",
     "fastify-swagger": "^2.4.0",
-    "firebase-admin": "^8.5.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.5.3",
-    "typescript": "3.6.3"
+    "typescript": "3.6.3",
+    "ts-node": "8.3.0"
   },
   "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.3.0",
     "@types/node": "10.14.18",
     "ts-node": "8.3.0",
     "tslint": "5.20.0"

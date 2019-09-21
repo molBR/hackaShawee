@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/npm'
+  dir: 'backend'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/ubuntu'
+  dir: backend
+  args: ['export', 'GOOGLE_APPLICATION_CREDENTIALS="My First Project-a32422b9263b.json"']
+- name: 'gcr.io/cloud-builders/npm'
+  dir: 'backend'
+  args: ['run', 'build']
+- name: "gcr.io/cloud-builders/gcloud"
+  dir: 'backend'
+  args: ["app", "deploy"]
+timeout: "1600s"

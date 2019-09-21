@@ -28,6 +28,12 @@ export class User {
     @ApiModelProperty()
     imgurl: string
 
+    @ApiModelProperty()
+    document: string
+
+    @ApiModelProperty()
+    isCompany: boolean
+
     @IsArray()
     @ApiModelProperty({isArray: true})
     specialtiesId : string

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "module": "commonjs",
     "declaration": true,
     "noImplicitAny": false,
@@ -13,5 +14,5 @@
     "outDir": "./dist",
     "baseUrl": "./"
   },
-  "exclude": ["node_modules"]
+  "exclude": [ "dist","node_modules"]
 }

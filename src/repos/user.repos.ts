@@ -20,6 +20,10 @@ export class UserRepos {
     }
   }
 
+  async getByUserId(id : string) :  Promise<FirebaseFirestore.DocumentSnapshot> { 
+    return await this.firestore.collection(this.collection).doc(id).get()
+  }
+
   async userExists(email) {
     const userRef = this.firestore.collection(this.collection).where('email', '==', email)
     const user = await userRef.get()
